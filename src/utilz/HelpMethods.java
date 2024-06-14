@@ -1,6 +1,10 @@
 package utilz;
 
+<<<<<<< HEAD
 import static utilz.Constants.EnemyConstants.PIGGY;
+=======
+import static utilz.Constants.EnemyConstants.CRABBY;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 import static utilz.Constants.ObjectConstants.*;
 
 import java.awt.Color;
@@ -9,7 +13,11 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import entities.Piggy;
+=======
+import entities.Crabby;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 import main.Game;
 import objects.Cannon;
 import objects.GameContainer;
@@ -141,14 +149,24 @@ public class HelpMethods {
 		return lvlData;
 	}
 
+<<<<<<< HEAD
 	public static ArrayList<Piggy> GetCrabs(BufferedImage img) {
 		ArrayList<Piggy> list = new ArrayList<>();
+=======
+	public static ArrayList<Crabby> GetCrabs(BufferedImage img) {
+		ArrayList<Crabby> list = new ArrayList<>();
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 		for (int j = 0; j < img.getHeight(); j++)
 			for (int i = 0; i < img.getWidth(); i++) {
 				Color color = new Color(img.getRGB(i, j));
 				int value = color.getGreen();
+<<<<<<< HEAD
 				if (value == PIGGY)
 					list.add(new Piggy(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+=======
+				if (value == CRABBY)
+					list.add(new Crabby(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 			}
 		return list;
 	}

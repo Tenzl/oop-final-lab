@@ -54,7 +54,11 @@ public class Player extends Entity {
 		this.playing = playing;
 		this.state = IDLE;
 		this.maxHealth = 100;
+<<<<<<< HEAD
 		this.currentHealth = 100;
+=======
+		this.currentHealth = 35;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 		this.walkSpeed = Game.SCALE * 1.0f;
 		loadAnimations();
 		initHitbox(20, 27);
@@ -76,6 +80,7 @@ public class Player extends Entity {
 		updateHealthBar();
 
 		if (currentHealth <= 0) {
+<<<<<<< HEAD
 			if (state != DEAD) {
 				state = DEAD;
 				aniTick = 0;
@@ -86,6 +91,9 @@ public class Player extends Entity {
 			} else
 				updateAnimationTick();
 
+=======
+			playing.setGameOver(true);
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 			return;
 		}
 
@@ -135,9 +143,15 @@ public class Player extends Entity {
 	}
 
 	public void render(Graphics g, int lvlOffset) {
+<<<<<<< HEAD
 	    g.drawImage(animations[state][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX, (int) (hitbox.y - yDrawOffset), width * flipW, height, null);
 	 //    drawHitbox(g, lvlOffset);
 		// drawAttackBox(g, lvlOffset);
+=======
+		g.drawImage(animations[state][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX, (int) (hitbox.y - yDrawOffset), width * flipW, height, null);
+//		drawHitbox(g, lvlOffset);
+//		drawAttackBox(g, lvlOffset);
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 		drawUI(g);
 	}
 
@@ -276,7 +290,11 @@ public class Player extends Entity {
 
 	private void loadAnimations() {
 		BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
+<<<<<<< HEAD
 		animations = new BufferedImage[7][11];
+=======
+		animations = new BufferedImage[7][8];
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 		for (int j = 0; j < animations.length; j++)
 			for (int i = 0; i < animations[j].length; i++)
 				animations[j][i] = img.getSubimage(i * 78, j * 58, 78, 58);
@@ -333,9 +351,17 @@ public class Player extends Entity {
 		if (!IsEntityOnFloor(hitbox, lvlData))
 			inAir = true;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 	public int getTileY() {
 		return tileY;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625

@@ -4,7 +4,11 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import entities.Piggy;
+=======
+import entities.Crabby;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 import main.Game;
 import objects.Cannon;
 import objects.GameContainer;
@@ -20,7 +24,11 @@ public class Level {
 
 	private BufferedImage img;
 	private int[][] lvlData;
+<<<<<<< HEAD
 	private ArrayList<Piggy> pigs;
+=======
+	private ArrayList<Crabby> crabs;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 	private ArrayList<Potion> potions;
 	private ArrayList<Spike> spikes;
 	private ArrayList<GameContainer> containers;
@@ -69,7 +77,11 @@ public class Level {
 	}
 
 	private void createEnemies() {
+<<<<<<< HEAD
 		pigs = GetCrabs(img);
+=======
+		crabs = GetCrabs(img);
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 	}
 
 	private void createLevelData() {
@@ -88,8 +100,13 @@ public class Level {
 		return maxLvlOffsetX;
 	}
 
+<<<<<<< HEAD
 	public ArrayList<Piggy> getPigs() {
 		return pigs;
+=======
+	public ArrayList<Crabby> getCrabs() {
+		return crabs;
+>>>>>>> f80e297a589ea264f42f78b5d292c47c407f5625
 	}
 
 	public Point getPlayerSpawn() {
