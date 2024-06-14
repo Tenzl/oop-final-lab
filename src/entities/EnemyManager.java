@@ -13,8 +13,8 @@ import static utilz.Constants.EnemyConstants.*;
 public class EnemyManager {
 
 	private Playing playing;
-	private BufferedImage[][] crabbyArr;
-	private ArrayList<Crabby> crabbies = new ArrayList<>();
+	private BufferedImage[][] piggyArr;
+	private ArrayList<Piggy> piggies = new ArrayList<>();
 
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
@@ -22,12 +22,12 @@ public class EnemyManager {
 	}
 
 	public void loadEnemies(Level level) {
-		crabbies = level.getCrabs();
+		piggies = level.getPigs();
 	}
 
 	public void update(int[][] lvlData, Player player) {
 		boolean isAnyActive = false;
-		for (Crabby c : crabbies)
+		for (Piggy c : piggies)
 			if (c.isActive()) {
 				c.update(lvlData, player);
 				isAnyActive = true;
@@ -37,15 +37,15 @@ public class EnemyManager {
 	}
 
 	public void draw(Graphics g, int xLvlOffset) {
-		drawCrabs(g, xLvlOffset);
+		drawPigs(g, xLvlOffset);
 	}
 
-	private void drawCrabs(Graphics g, int xLvlOffset) {
-		for (Crabby c : crabbies)
+	private void drawPigs(Graphics g, int xLvlOffset) {
+		for (Piggy c : piggies)
 			if (c.isActive()) {
 
-				g.drawImage(crabbyArr[c.getState()][c.getAniIndex()], (int) c.getHitbox().x - xLvlOffset - CRABBY_DRAWOFFSET_X + c.flipX(), (int) c.getHitbox().y - CRABBY_DRAWOFFSET_Y,
-						CRABBY_WIDTH * c.flipW(), CRABBY_HEIGHT, null);
+				g.drawImage(piggyArr[c.getState()][c.getAniIndex()], (int) c.getHitbox().x - xLvlOffset - PIGGY_DRAWOFFSET_X + c.flipX(), (int) c.getHitbox().y - PIGGY_DRAWOFFSET_Y,
+						PIGGY_WIDTH * c.flipW(), PIGGY_HEIGHT, null);
 
 //				c.drawHitbox(g, xLvlOffset);
 //				c.drawAttackBox(g, xLvlOffset);
@@ -54,7 +54,7 @@ public class EnemyManager {
 	}
 
 	public void checkEnemyHit(Rectangle2D.Float attackBox) {
-		for (Crabby c : crabbies)
+		for (Piggy c : piggies)
 			if (c.isActive())
 				if (attackBox.intersects(c.getHitbox())) {
 					c.hurt(10);
@@ -63,15 +63,15 @@ public class EnemyManager {
 	}
 
 	private void loadEnemyImgs() {
-		crabbyArr = new BufferedImage[5][9];
-		BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.CRABBY_SPRITE);
-		for (int j = 0; j < crabbyArr.length; j++)
-			for (int i = 0; i < crabbyArr[j].length; i++)
-				crabbyArr[j][i] = temp.getSubimage(i * CRABBY_WIDTH_DEFAULT, j * CRABBY_HEIGHT_DEFAULT, CRABBY_WIDTH_DEFAULT, CRABBY_HEIGHT_DEFAULT);
+		piggyArr = new BufferedImage[5][11];
+		BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.PIGGY_SPRITE);
+		for (int j = 0; j < piggyArr.length; j++)
+			for (int i = 0; i < piggyArr[j].length; i++)
+				piggyArr[j][i] = temp.getSubimage(i * PIGGY_WIDTH_DEFAULT, j * PIGGY_HEIGHT_DEFAULT, PIGGY_WIDTH_DEFAULT, PIGGY_HEIGHT_DEFAULT);
 	}
 
 	public void resetAllEnemies() {
-		for (Crabby c : crabbies)
+		for (Piggy c : piggies)
 			c.resetEnemy();
 	}
 
